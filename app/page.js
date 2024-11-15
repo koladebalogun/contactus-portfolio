@@ -1,95 +1,90 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import React, { useEffect } from "react";
+import Overlay from "@/components/Overlay";
+import { AiFillInstagram } from "react-icons/ai";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import gsap from "gsap";
+
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    gsap.from(".header h1", {
+      y: 200,
+      ease: "power4.inOut",
+      duration: 1.5,
+      delay: 5.75,
+      stagger: 0.05,
+      opacity:0
+    });
+
+    gsap.to(".img", {
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+      ease: "power4.inOut",
+      duration: 1.5,
+      delay: 5.5,
+      stagger: 0.25,
+    });
+  }, []);
+
+  return (
+    <div>
+      <Overlay />
+      <div className="site-content">
+        <div className="header">
+          <h1>C</h1>
+          <h1>O</h1>
+          <h1>N</h1>
+          <h1>T</h1>
+          <h1>A</h1>
+          <h1>C</h1>
+          <h1>T</h1>
+          <h1>-</h1>
+          <h1>M</h1>
+          <h1>E</h1>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <footer>
+          <div className="footer-info">
+            <div className="footer-copy">
+              <p>Kolade Balogun</p>
+              <p>koladebalogun.kb@gmail.com</p>
+              <p>+234 904122 4812</p>
+            </div>
+
+            <div className="footer-icons">
+              <a
+                href="https://www.instagram.com/kolvde/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiFillInstagram style={{ width: "30px", height: "30px" }} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/koladebalogun/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin style={{ width: "30px", height: "30px" }} />
+              </a>
+              <a
+                href="https://github.com/koladebalogun"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub style={{ width: "30px", height: "30px" }} />
+              </a>
+            </div>
+          </div>
+
+          <div className="footer-nav">
+            <div className="img"></div>
+            <div className="img"></div>
+            <div className="img"></div>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
