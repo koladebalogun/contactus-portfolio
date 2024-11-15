@@ -50,7 +50,7 @@ export default function Home() {
             <div className="footer-copy">
               <p>Kolade Balogun</p>
               <p>koladebalogun.kb@gmail.com</p>
-              <p>+234 904122 4812</p>
+              <p>(+234) 904122 4812</p>
             </div>
 
             <div className="footer-icons">
